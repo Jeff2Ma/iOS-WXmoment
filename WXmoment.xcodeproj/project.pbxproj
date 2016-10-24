@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		DF41C25F1DBDDEC9009EADE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C25E1DBDDEC9009EADE9 /* main.m */; };
 		DF41C2621DBDDEC9009EADE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */; };
-		DF41C2651DBDDEC9009EADE9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2641DBDDEC9009EADE9 /* ViewController.m */; };
+		DF41C2651DBDDEC9009EADE9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */; };
 		DF41C2681DBDDEC9009EADE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF41C2661DBDDEC9009EADE9 /* Main.storyboard */; };
 		DF41C26A1DBDDEC9009EADE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */; };
 		DF41C26D1DBDDEC9009EADE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF41C26B1DBDDEC9009EADE9 /* LaunchScreen.storyboard */; };
@@ -39,8 +39,8 @@
 		DF41C25E1DBDDEC9009EADE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DF41C2601DBDDEC9009EADE9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DF41C2631DBDDEC9009EADE9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DF41C2641DBDDEC9009EADE9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DF41C2631DBDDEC9009EADE9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DF41C2671DBDDEC9009EADE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF41C26C1DBDDEC9009EADE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,8 +103,8 @@
 			children = (
 				DF41C2601DBDDEC9009EADE9 /* AppDelegate.h */,
 				DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */,
-				DF41C2631DBDDEC9009EADE9 /* ViewController.h */,
-				DF41C2641DBDDEC9009EADE9 /* ViewController.m */,
+				DF41C2631DBDDEC9009EADE9 /* LoginViewController.h */,
+				DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */,
 				DF41C2661DBDDEC9009EADE9 /* Main.storyboard */,
 				DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */,
 				DF41C26B1DBDDEC9009EADE9 /* LaunchScreen.storyboard */,
@@ -270,7 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DF41C2651DBDDEC9009EADE9 /* ViewController.m in Sources */,
+				DF41C2651DBDDEC9009EADE9 /* LoginViewController.m in Sources */,
 				DF41C2621DBDDEC9009EADE9 /* AppDelegate.m in Sources */,
 				DF41C25F1DBDDEC9009EADE9 /* main.m in Sources */,
 			);
@@ -498,6 +498,7 @@
 				DF41C2891DBDDEC9009EADE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF41C28A1DBDDEC9009EADE9 /* Build configuration list for PBXNativeTarget "WXmomentTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +507,7 @@
 				DF41C28C1DBDDEC9009EADE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DF41C28D1DBDDEC9009EADE9 /* Build configuration list for PBXNativeTarget "WXmomentUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +516,7 @@
 				DF41C28F1DBDDEC9009EADE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
