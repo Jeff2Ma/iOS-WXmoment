@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LoginViewController.h"
+#import "MomentViewController.h"
 
 
 @interface AppDelegate ()
@@ -20,11 +21,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 系统初始化
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.backgroundColor = [UIColor grayColor];//给window设置一个背景色
+//    [self.window makeKeyAndVisible];//让window显示出来
+    
     // 增加标题栏 http://ju.outofmemory.cn/entry/284956
-    LoginViewController *viewController = [[LoginViewController alloc]  init];
-    UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
-    viewController.view.backgroundColor = [UIColor whiteColor];
+    LoginViewController *loginView = [[LoginViewController alloc]  init];
+    
+    MomentViewController * momentView = [[MomentViewController alloc]  init];
+    
+    // 设置哪个 view 作为 root view
+    UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:momentView];
+    
+    loginView.view.backgroundColor = [UIColor whiteColor];
+    momentView.view.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = rootNavigationController;
+    
     return YES;
 }
 

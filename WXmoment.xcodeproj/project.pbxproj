@@ -15,6 +15,7 @@
 		DF41C26D1DBDDEC9009EADE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF41C26B1DBDDEC9009EADE9 /* LaunchScreen.storyboard */; };
 		DF41C2781DBDDEC9009EADE9 /* WXmomentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2771DBDDEC9009EADE9 /* WXmomentTests.m */; };
 		DF41C2831DBDDEC9009EADE9 /* WXmomentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2821DBDDEC9009EADE9 /* WXmomentUITests.m */; };
+		DF41C2941DBE37F9009EADE9 /* MomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2931DBE37F9009EADE9 /* MomentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,8 @@
 		DF41C27E1DBDDEC9009EADE9 /* WXmomentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WXmomentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF41C2821DBDDEC9009EADE9 /* WXmomentUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WXmomentUITests.m; sourceTree = "<group>"; };
 		DF41C2841DBDDEC9009EADE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF41C2921DBE37F9009EADE9 /* MomentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewController.h; sourceTree = "<group>"; };
+		DF41C2931DBE37F9009EADE9 /* MomentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				DF41C2601DBDDEC9009EADE9 /* AppDelegate.h */,
 				DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */,
 				DF41C2631DBDDEC9009EADE9 /* LoginViewController.h */,
+				DF41C2921DBE37F9009EADE9 /* MomentViewController.h */,
+				DF41C2931DBE37F9009EADE9 /* MomentViewController.m */,
 				DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */,
 				DF41C2661DBDDEC9009EADE9 /* Main.storyboard */,
 				DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */,
@@ -273,6 +278,7 @@
 				DF41C2651DBDDEC9009EADE9 /* LoginViewController.m in Sources */,
 				DF41C2621DBDDEC9009EADE9 /* AppDelegate.m in Sources */,
 				DF41C25F1DBDDEC9009EADE9 /* main.m in Sources */,
+				DF41C2941DBE37F9009EADE9 /* MomentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

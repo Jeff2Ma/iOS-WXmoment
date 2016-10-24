@@ -49,7 +49,7 @@
     * 修复参考：http://wahenzan.com/a/mdev/ios/2016/1011/10890.html
     */
     
-    NSString *strName = @"Jeff2Ma ";
+    NSString *strName = @"Jeff2Ma "; // 必须加个空格才正常
     
     // old way
     // CGSize nameSize = [strName sizeWithFont:aName.font constrainedToSize:CGSizeMake(MAXFLOAT, aName.frame.size.height)];
@@ -65,7 +65,7 @@
     
     // 根据 name 的长度重新设置位置
     [self.aName setFrame:CGRectMake(NameLeft, NameTop, nameSize.width, 120)];
-    
+
     self.aName.text = strName;
     
     [self.view addSubview:self.aName];
@@ -95,7 +95,7 @@
 #pragma mark - addPassWordLabel
 - (void) addPassWordLabel{
     
-    CGFloat PassWordLabelW = 34;
+    CGFloat PassWordLabelW = 38;
     CGFloat PassWordLabelH = 34;
     CGFloat PassWordLabelL = 20;
     CGFloat PassWordLabelT = 260;
