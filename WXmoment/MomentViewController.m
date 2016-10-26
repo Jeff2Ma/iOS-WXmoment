@@ -42,7 +42,7 @@ static NSString*IDD = @"AA";
 #pragma mark - viewDidLoad
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = @"微信朋友圈"; // 标题栏
+    self.navigationItem.title = @"水友圈"; // 标题栏
 
     [self setUpTabelView];
 }

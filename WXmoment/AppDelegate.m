@@ -32,7 +32,7 @@
     MomentViewController * momentView = [[MomentViewController alloc]  init];
     
     // 设置哪个 view 作为 root view
-    UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:momentView];
+    UINavigationController *rootNavigationController = [[UINavigationController alloc] initWithRootViewController:loginView];
     
     loginView.view.backgroundColor = [UIColor whiteColor];
     momentView.view.backgroundColor = [UIColor whiteColor];

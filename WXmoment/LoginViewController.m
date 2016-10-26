@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "MomentViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface LoginViewController ()
@@ -165,11 +166,14 @@
     NSLog(@"clicked!");
 
     // 验证
-     if([self.aPassWordInput.text isEqualToString:@"admin"]){
+     if([self.aPassWordInput.text isEqualToString:@""]){
         NSLog(@"correct!");
+         MomentViewController *momentView = [[MomentViewController alloc] init];
+         
+         [self.navigationController pushViewController:momentView animated:YES];
     }
     else{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"密码错误!" message:@"请输入正确的密码(admin)" preferredStyle:  UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"密码错误!" message:@"请输入正确的密码(为空)" preferredStyle:  UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         }]];
         [self presentViewController:alert animated:true completion:nil];
