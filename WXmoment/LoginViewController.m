@@ -10,6 +10,8 @@
 #import "MomentViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#define LoginBound [[UIScreen mainScreen] bounds];
+
 @interface LoginViewController ()
 
 @end
@@ -76,7 +78,7 @@
 #pragma mark - addAvatar
 -(void)addAvatar{
     // 图片定位
-    CGRect bound = [[UIScreen mainScreen] bounds];
+    CGRect bound = LoginBound;
     CGFloat avatarWidth = 80;
     CGFloat avatarHeight = 80;
     CGFloat avatarLeft = bound.size.width/2 - avatarWidth/2;
@@ -113,7 +115,7 @@
 #pragma mark - addPassWordInput
 - (void) addPassWordInput{
     
-    CGRect bound = [[UIScreen mainScreen] bounds];
+    CGRect bound = LoginBound;
     CGFloat PassWordInputW = bound.size.width - 20*2 - 34 -10;
     CGFloat PassWordInputH = 34;
     CGFloat PassWordInputL = 20 + 34 + 10;
@@ -139,7 +141,7 @@
 #pragma mark - addLoginBtn
 - (void) addLoginBtn{
     
-    CGRect bound = [[UIScreen mainScreen] bounds];
+    CGRect bound = LoginBound;
     CGFloat LoginBtnW = bound.size.width - 20*2;
     CGFloat LoginBtnH = 36;
     CGFloat LoginBtnL = 20;

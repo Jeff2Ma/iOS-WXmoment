@@ -30,7 +30,7 @@ static NSString*IDD = @"AA";
 
 @implementation MomentViewController
 
-#pragma mark - 获取数据源（模型数据源、模型高度数据源）
+// 获取数据源（模型数据源、模型高度数据源）
 -(NSArray *)dataArray{
     if (!_dataArray) {
         _dataArray = [ModelGroup groupWithNameOfContent:@"data.plist"];
@@ -47,7 +47,7 @@ static NSString*IDD = @"AA";
     [self setUpTabelView];
 }
 
-#pragma mark - 创建tableView
+// 创建tableView
 -(void)setUpTabelView{
     // UITableViewStyleGrouped 表示头部跟随一起滚动, UITableViewStylePlain 则固定
     UITableView*vi = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
@@ -58,6 +58,11 @@ static NSString*IDD = @"AA";
     [vi registerClass:[WXmomentCell class] forCellReuseIdentifier:IDD];
     // vi.separatorColor = [UIColor clearColor];
     // vi.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    // 设置 tableview 的背景色
+    vi.backgroundView = nil;
+    vi.backgroundColor = [UIColor whiteColor];
+
     self.tab = vi;
 }
 
@@ -73,7 +78,6 @@ static NSString*IDD = @"AA";
     cell.model = [_dataArray objectAtIndex:indexPath.row];
     cell.frameModel = [_frameArray objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone; // 去除点击灰色效果
-    
     return cell;
 }
 
@@ -160,39 +164,3 @@ static NSString*IDD = @"AA";
 }
 
 @end
-
-
-
-/**
- 
-@interface MomentViewController ()
-
-@end
-
-@implementation MomentViewController
-
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // Do any additional setup after loading the view, typically from a nib.
-  
-    self.navigationItem.title = @"微信朋友圈"; // 标题栏
-//    [self addHeader];
-    
-//    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) style:UITableViewStyleGrouped];
-
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-
-@end
-
-*/
