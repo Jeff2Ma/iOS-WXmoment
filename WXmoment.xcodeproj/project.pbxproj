@@ -11,11 +11,16 @@
 		DF41C2621DBDDEC9009EADE9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */; };
 		DF41C2651DBDDEC9009EADE9 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */; };
 		DF41C2681DBDDEC9009EADE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF41C2661DBDDEC9009EADE9 /* Main.storyboard */; };
-		DF41C26A1DBDDEC9009EADE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */; };
 		DF41C26D1DBDDEC9009EADE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF41C26B1DBDDEC9009EADE9 /* LaunchScreen.storyboard */; };
 		DF41C2781DBDDEC9009EADE9 /* WXmomentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2771DBDDEC9009EADE9 /* WXmomentTests.m */; };
 		DF41C2831DBDDEC9009EADE9 /* WXmomentUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2821DBDDEC9009EADE9 /* WXmomentUITests.m */; };
 		DF41C2941DBE37F9009EADE9 /* MomentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF41C2931DBE37F9009EADE9 /* MomentViewController.m */; };
+		DF94861A1DC0903800A9C1A9 /* WXmomentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9486191DC0903800A9C1A9 /* WXmomentCell.m */; };
+		DF94861E1DC0908A00A9C1A9 /* ModelGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = DF94861D1DC0908A00A9C1A9 /* ModelGroup.m */; };
+		DF9486211DC090BA00A9C1A9 /* WXmomentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9486201DC090BA00A9C1A9 /* WXmomentModel.m */; };
+		DF9486241DC090EF00A9C1A9 /* WXmomentFrameModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9486231DC090EF00A9C1A9 /* WXmomentFrameModel.m */; };
+		DF9486261DC0917000A9C1A9 /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = DF9486251DC0917000A9C1A9 /* data.plist */; };
+		DF9486281DC0A55E00A9C1A9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF9486271DC0A55E00A9C1A9 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +48,6 @@
 		DF41C2631DBDDEC9009EADE9 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DF41C2671DBDDEC9009EADE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF41C26C1DBDDEC9009EADE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF41C26E1DBDDEC9009EADE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF41C2731DBDDEC9009EADE9 /* WXmomentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WXmomentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +58,16 @@
 		DF41C2841DBDDEC9009EADE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DF41C2921DBE37F9009EADE9 /* MomentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewController.h; sourceTree = "<group>"; };
 		DF41C2931DBE37F9009EADE9 /* MomentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewController.m; sourceTree = "<group>"; };
+		DF9486181DC0903800A9C1A9 /* WXmomentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXmomentCell.h; sourceTree = "<group>"; };
+		DF9486191DC0903800A9C1A9 /* WXmomentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXmomentCell.m; sourceTree = "<group>"; };
+		DF94861C1DC0908A00A9C1A9 /* ModelGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelGroup.h; sourceTree = "<group>"; };
+		DF94861D1DC0908A00A9C1A9 /* ModelGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModelGroup.m; sourceTree = "<group>"; };
+		DF94861F1DC090BA00A9C1A9 /* WXmomentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXmomentModel.h; sourceTree = "<group>"; };
+		DF9486201DC090BA00A9C1A9 /* WXmomentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXmomentModel.m; sourceTree = "<group>"; };
+		DF9486221DC090EF00A9C1A9 /* WXmomentFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXmomentFrameModel.h; sourceTree = "<group>"; };
+		DF9486231DC090EF00A9C1A9 /* WXmomentFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXmomentFrameModel.m; sourceTree = "<group>"; };
+		DF9486251DC0917000A9C1A9 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		DF9486271DC0A55E00A9C1A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../NewVersion/WXmoments/Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,9 @@
 		DF41C25C1DBDDEC9009EADE9 /* WXmoment */ = {
 			isa = PBXGroup;
 			children = (
+				DF9486271DC0A55E00A9C1A9 /* Images.xcassets */,
+				DF94861B1DC0907300A9C1A9 /* Model */,
+				DF9486171DC0901C00A9C1A9 /* Cell */,
 				DF41C2601DBDDEC9009EADE9 /* AppDelegate.h */,
 				DF41C2611DBDDEC9009EADE9 /* AppDelegate.m */,
 				DF41C2631DBDDEC9009EADE9 /* LoginViewController.h */,
@@ -111,7 +128,6 @@
 				DF41C2931DBE37F9009EADE9 /* MomentViewController.m */,
 				DF41C2641DBDDEC9009EADE9 /* LoginViewController.m */,
 				DF41C2661DBDDEC9009EADE9 /* Main.storyboard */,
-				DF41C2691DBDDEC9009EADE9 /* Assets.xcassets */,
 				DF41C26B1DBDDEC9009EADE9 /* LaunchScreen.storyboard */,
 				DF41C26E1DBDDEC9009EADE9 /* Info.plist */,
 				DF41C25D1DBDDEC9009EADE9 /* Supporting Files */,
@@ -123,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				DF41C25E1DBDDEC9009EADE9 /* main.m */,
+				DF9486251DC0917000A9C1A9 /* data.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -143,6 +160,28 @@
 				DF41C2841DBDDEC9009EADE9 /* Info.plist */,
 			);
 			path = WXmomentUITests;
+			sourceTree = "<group>";
+		};
+		DF9486171DC0901C00A9C1A9 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DF9486181DC0903800A9C1A9 /* WXmomentCell.h */,
+				DF9486191DC0903800A9C1A9 /* WXmomentCell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		DF94861B1DC0907300A9C1A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DF94861C1DC0908A00A9C1A9 /* ModelGroup.h */,
+				DF94861D1DC0908A00A9C1A9 /* ModelGroup.m */,
+				DF94861F1DC090BA00A9C1A9 /* WXmomentModel.h */,
+				DF9486201DC090BA00A9C1A9 /* WXmomentModel.m */,
+				DF9486221DC090EF00A9C1A9 /* WXmomentFrameModel.h */,
+				DF9486231DC090EF00A9C1A9 /* WXmomentFrameModel.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,7 +288,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DF41C26D1DBDDEC9009EADE9 /* LaunchScreen.storyboard in Resources */,
-				DF41C26A1DBDDEC9009EADE9 /* Assets.xcassets in Resources */,
+				DF9486281DC0A55E00A9C1A9 /* Images.xcassets in Resources */,
+				DF9486261DC0917000A9C1A9 /* data.plist in Resources */,
 				DF41C2681DBDDEC9009EADE9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,8 +317,12 @@
 			files = (
 				DF41C2651DBDDEC9009EADE9 /* LoginViewController.m in Sources */,
 				DF41C2621DBDDEC9009EADE9 /* AppDelegate.m in Sources */,
+				DF9486241DC090EF00A9C1A9 /* WXmomentFrameModel.m in Sources */,
+				DF94861A1DC0903800A9C1A9 /* WXmomentCell.m in Sources */,
 				DF41C25F1DBDDEC9009EADE9 /* main.m in Sources */,
+				DF9486211DC090BA00A9C1A9 /* WXmomentModel.m in Sources */,
 				DF41C2941DBE37F9009EADE9 /* MomentViewController.m in Sources */,
+				DF94861E1DC0908A00A9C1A9 /* ModelGroup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

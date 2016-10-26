@@ -10,17 +10,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MomentViewController :  UITableViewController
+@interface MomentViewController :  UIViewController
 // header 部分
 @property (nonatomic,strong) UIView *aHeaderView;
 @property (nonatomic,strong) UIImageView *aHeaderImg;
 @property (nonatomic,strong) UIImageView *aHeaderAvatar;
 @property (nonatomic,strong) UILabel *aheaderName;
-
-
-
-// table view 部分
-@property (nonatomic,strong) NSArray *list;
-
 
 @end
