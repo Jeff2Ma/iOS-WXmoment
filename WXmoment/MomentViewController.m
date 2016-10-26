@@ -44,7 +44,7 @@
     
     // 包裹元素
     [self.aHeaderView setFrame:CGRectMake(0, 64, self.view.frame.size.width, 284)];
-    self.aHeaderView.backgroundColor = [UIColor redColor];
+    self.aHeaderView.backgroundColor = [UIColor whiteColor];
     
     // 背景图
     [self.aHeaderImg setFrame:CGRectMake(0, 0, self.view.frame.size.width, 260)];
@@ -87,7 +87,7 @@
     
     // 包裹元素
     [self.aHeaderView setFrame:CGRectMake(0, 64, self.view.frame.size.width, 284)];
-    self.aHeaderView.backgroundColor = [UIColor redColor];
+    self.aHeaderView.backgroundColor = [UIColor whiteColor];
     
     // 背景图
     [self.aHeaderImg setFrame:CGRectMake(0, 0, self.view.frame.size.width, 260)];
@@ -115,6 +115,30 @@
     return self.aHeaderView;
 }
 
+// 解决TableView左边有空隙
+// ref: https://zhongdian.gitbooks.io/z-s-dev-manuscript/content/ios/tableview_left_line_distance.html
+-(void)viewDidLayoutSubviews
+{
+    if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+        [self.tableView setSeparatorInset:UIEdgeInsetsMake(0,0,0,0)];
+    }
+    
+    if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self.tableView setLayoutMargins:UIEdgeInsetsMake(0,0,0,0)];
+    }
+}
+
+//解决TableView左边有空隙
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+        [cell setSeparatorInset:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
 
 
 //
