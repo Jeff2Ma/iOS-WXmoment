@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define LoginBound [[UIScreen mainScreen] bounds];
+const int MARGIN = 20; // 内 margin
 
 @interface LoginViewController ()
 
@@ -79,16 +80,17 @@
 -(void)addAvatar{
     // 图片定位
     CGRect bound = LoginBound;
-    CGFloat avatarWidth = 80;
-    CGFloat avatarHeight = 80;
-    CGFloat avatarLeft = bound.size.width/2 - avatarWidth/2;
-    CGFloat avatarTop = 100;
+    CGFloat avatarW = 80;
+    CGFloat avatarH = 80;
+    CGFloat avatarX = bound.size.width/2 - avatarW/2;
+    CGFloat avatarY = 100;
     
-    self.aAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(avatarLeft,avatarTop,avatarWidth,avatarHeight)];
+    self.aAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(avatarX,avatarY,avatarW,avatarH)];
     [self.aAvatar setImage:[UIImage imageNamed:@"avatar"]];
-    [self.aAvatar setContentMode:UIViewContentModeScaleAspectFit];
+    [self.aAvatar setContentMode:UIViewContentModeScaleAspectFill]; // 图片显示方式，类似 CSS 中 cover
     
     [self.aAvatar.layer setBorderWidth:1];
+    self.aAvatar.layer.cornerRadius = 5;
     self.aAvatar.layer.borderColor = [[UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1] CGColor];
     
     [self.view addSubview:self.aAvatar];
@@ -100,14 +102,14 @@
     
     CGFloat PassWordLabelW = 38;
     CGFloat PassWordLabelH = 34;
-    CGFloat PassWordLabelL = 20;
-    CGFloat PassWordLabelT = 260;
+    CGFloat PassWordLabelX = MARGIN;
+    CGFloat PassWordLabelY = 260;
     
     self.aPassWordLabel = [[UILabel alloc]init];
     self.aPassWordLabel.text = @"密码";
     self.aPassWordLabel.textColor=[UIColor blackColor];
     
-    [self.aPassWordLabel setFrame:CGRectMake(PassWordLabelL,PassWordLabelT,PassWordLabelW,PassWordLabelH)];
+    [self.aPassWordLabel setFrame:CGRectMake(PassWordLabelX,PassWordLabelY,PassWordLabelW,PassWordLabelH)];
     [self.view addSubview:self.aPassWordLabel];
 }
 
@@ -116,17 +118,17 @@
 - (void) addPassWordInput{
     
     CGRect bound = LoginBound;
-    CGFloat PassWordInputW = bound.size.width - 20*2 - 34 -10;
     CGFloat PassWordInputH = 34;
-    CGFloat PassWordInputL = 20 + 34 + 10;
-    CGFloat PassWordInputT = 260;
+    CGFloat PassWordInputW = bound.size.width - MARGIN * 2 - PassWordInputH - MARGIN/2;
+    CGFloat PassWordInputX = MARGIN + PassWordInputH + MARGIN/2;
+    CGFloat PassWordInputY = 260;
     
     self.aPassWordInput = [[UITextField alloc]init];
     self.aPassWordInput.placeholder = @"请填写密码";
     self.aPassWordInput.textColor=[UIColor blackColor];
     self.aPassWordInput.secureTextEntry = YES; // 密码形式的输入
     self.aPassWordInput.keyboardType = UIKeyboardTypeASCIICapable; //ASCLL 码键盘
-    [self.aPassWordInput setFrame:CGRectMake(PassWordInputL,PassWordInputT,PassWordInputW,PassWordInputH)];
+    [self.aPassWordInput setFrame:CGRectMake(PassWordInputX,PassWordInputY,PassWordInputW,PassWordInputH)];
     
     // 设置下边框
     CALayer *bottomBorder = [CALayer layer];
@@ -142,10 +144,10 @@
 - (void) addLoginBtn{
     
     CGRect bound = LoginBound;
-    CGFloat LoginBtnW = bound.size.width - 20*2;
+    CGFloat LoginBtnW = bound.size.width - MARGIN * 2;
     CGFloat LoginBtnH = 36;
-    CGFloat LoginBtnL = 20;
-    CGFloat LoginBtnT = 330;
+    CGFloat LoginBtnX = MARGIN;
+    CGFloat LoginBtnY = 330;
     
     self.aLoginBtn = [[UIButton alloc] init];
     [self.aLoginBtn setTitle:@"登 录" forState:UIControlStateNormal];
@@ -158,7 +160,7 @@
     [self.aLoginBtn addTarget:self action:@selector(onLoginBtnClickedFunction:) forControlEvents:(UIControlEventTouchUpInside)];
     [self.aLoginBtn addTarget:self action:@selector(onLoginBtnClickedStyle:) forControlEvents:UIControlEventTouchDown];
     
-    [self.aLoginBtn setFrame:CGRectMake(LoginBtnL, LoginBtnT,LoginBtnW,LoginBtnH)];
+    [self.aLoginBtn setFrame:CGRectMake(LoginBtnX, LoginBtnY,LoginBtnW,LoginBtnH)];
     [self.view addSubview:self.aLoginBtn];
 }
 

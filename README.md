@@ -6,7 +6,7 @@
 
 ## 说明
 
-这个是本人入门 iOS 的第一个学习项目。从界面上仿微信登陆界面及仿朋友圈信息流，暂不考虑逻辑层面的东西。
+这个是本人入门 iOS 的第一个学习项目。从界面上仿微信登录界面及仿朋友圈信息流，暂不考虑逻辑层面的东西。
 
 ## Screenshot
 
@@ -15,11 +15,11 @@
 
 ### 朋友圈头部
 
-![朋友圈头部](./_screenshot/wxmoment.png)
+![朋友圈头部](./_screenshot/moment.png)
 
 ### 朋友圈
 
-![朋友圈](./_screenshot/wxmoment2.png)
+![朋友圈](./_screenshot/moment2.png)
 
 ## 学习笔记
 

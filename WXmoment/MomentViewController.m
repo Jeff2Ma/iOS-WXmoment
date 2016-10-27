@@ -11,7 +11,9 @@
 #import "WXmomentModel.h"
 #import "ModelGroup.h"
 #import "WXmomentCell.h"
+
 static NSString*IDD = @"AA";
+const int HEADERHEIGHT = 284; // header 的高度
 
 @interface MomentViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**
@@ -78,12 +80,13 @@ static NSString*IDD = @"AA";
     self.aheaderName = [[UILabel alloc] init]; // 微信昵称
     
     // 包裹元素
-    [self.aHeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 284)];
+    [self.aHeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
     self.aHeaderView.backgroundColor = [UIColor whiteColor];
     
     // 背景图
     [self.aHeaderImg setFrame:CGRectMake(0, 0, self.view.frame.size.width, 260)];
     [self.aHeaderImg setImage:[UIImage imageNamed:@"header_bg"]];
+    [self.aHeaderImg setContentMode:UIViewContentModeScaleAspectFill];
     
     // 头像
     [self.aHeaderAvatar setFrame:CGRectMake(self.aHeaderView.frame.size.width-90, 214, 70, 70)];

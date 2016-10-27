@@ -74,6 +74,7 @@
         UIImageView *pictureImageView = [[UIImageView alloc] init];
         [self.contentView addSubview:pictureImageView];
         self.pictureImageView = pictureImageView;
+        [self.pictureImageView setContentMode:UIViewContentModeScaleAspectFit];
         
         // 时间
         UILabel *timeLabel = [[UILabel alloc] init];
@@ -85,7 +86,7 @@
         // 点赞图标
         UIImageView *iconImageView = [[UIImageView alloc] init];
         iconImageView.image = [UIImage imageNamed:@"icon"];
-        iconImageView.contentMode = UIViewContentModeCenter;
+        iconImageView.contentMode = UIViewContentModeScaleAspectFit;
         [self.contentView addSubview:iconImageView];
         self.iconImageView = iconImageView;
     }
