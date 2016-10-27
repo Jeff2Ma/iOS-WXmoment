@@ -157,7 +157,7 @@ static NSString*IDD = @"AA";
 }
 
 /**
- * 以下是旧的实现方式
+ * 以下是另外一种实现方式，有坑
  *
  // TableView 添加 Section 自定义头部-定义高度
  - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
