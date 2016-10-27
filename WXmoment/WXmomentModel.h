@@ -21,8 +21,6 @@
 
 @property(nonatomic,strong)NSString * icon;
 
-/**
- *  framemodel
- */
+// 初始化方法
 + (instancetype)modelWithDict:(NSDictionary*)dict;
 @end

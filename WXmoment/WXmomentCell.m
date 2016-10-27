@@ -92,7 +92,7 @@
     return  self;
 }
 
-
+// 给控件赋frame值
 -(void)layoutSubviews{
     [super layoutSubviews];
     _avatarImageView.frame = _frameModel.avatarFrame;
@@ -103,17 +103,11 @@
     _timeLabel.frame = _frameModel.timeFrame;
 }
 
-
+// 控件赋数据值
 -(void)setModel:(WXmomentModel *)model{
     _model = model;
     _avatarImageView.image = [UIImage imageNamed:model.avatar];
     _nameLabel.text = _model.name;
-    //    if (_model.icon) {
-    //        _iconImageView.hidden = NO;
-    //    }else{
-    //        _iconImageView.hidden = YES;
-    //    }
-    //    _iconImageView.image = [UIImage imageNamed:model.icon];
     _textlabel.text = _model.text;
     if (model.picture) {
         _pictureImageView.image = [UIImage imageNamed:model.picture];

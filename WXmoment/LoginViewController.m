@@ -29,7 +29,7 @@
     [self addPassWordLabel];
     [self addPassWordInput];
     [self addLoginBtn];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,10 +47,10 @@
     self.aName.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
     
     /* 通过计算文本的尺寸来定位
-    * 定位方法：http://blog.csdn.net/enuola/article/details/8559588
-    * 修正过时的函数：http://blog.csdn.net/jymn_chen/article/details/10949279
-    * 修复参考：http://wahenzan.com/a/mdev/ios/2016/1011/10890.html
-    */
+     * 定位方法：http://blog.csdn.net/enuola/article/details/8559588
+     * 修正过时的函数：http://blog.csdn.net/jymn_chen/article/details/10949279
+     * 修复参考：http://wahenzan.com/a/mdev/ios/2016/1011/10890.html
+     */
     
     NSString *strName = @"Jeff2Ma "; // 必须加个空格才正常
     
@@ -60,7 +60,7 @@
     // new way
     NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
     CGSize nameSize = [strName boundingRectWithSize:CGSizeMake(1000, 20) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
-
+    
     // 基本单位
     CGRect bound = [[UIScreen mainScreen] bounds];
     CGFloat NameLeft = bound.size.width/2 - nameSize.width/2;
@@ -68,7 +68,7 @@
     
     // 根据 name 的长度重新设置位置
     [self.aName setFrame:CGRectMake(NameLeft, NameTop, nameSize.width, 120)];
-
+    
     self.aName.text = strName;
     
     [self.view addSubview:self.aName];
@@ -146,7 +146,7 @@
     CGFloat LoginBtnH = 36;
     CGFloat LoginBtnL = 20;
     CGFloat LoginBtnT = 330;
-
+    
     self.aLoginBtn = [[UIButton alloc] init];
     [self.aLoginBtn setTitle:@"登 录" forState:UIControlStateNormal];
     self.aLoginBtn.layer.cornerRadius = 5; // 圆角
@@ -166,13 +166,13 @@
 #pragma mark - onLoginBtnClickedFunction
 - (void)onLoginBtnClickedFunction:(UIButton *)sender {
     NSLog(@"clicked!");
-
+    
     // 验证
-     if([self.aPassWordInput.text isEqualToString:@""]){
+    if([self.aPassWordInput.text isEqualToString:@""]){
         NSLog(@"correct!");
-         MomentViewController *momentView = [[MomentViewController alloc] init];
-         
-         [self.navigationController pushViewController:momentView animated:YES];
+        MomentViewController *momentView = [[MomentViewController alloc] init];
+        
+        [self.navigationController pushViewController:momentView animated:YES];
     }
     else{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"密码错误!" message:@"请输入正确的密码(为空)" preferredStyle:  UIAlertControllerStyleAlert];
@@ -184,7 +184,7 @@
     
     // 恢复原来的状态
     sender.backgroundColor = [UIColor colorWithRed:0.02 green:0.75 blue:0.01 alpha:1.00];
-
+    
 }
 
 // Logic: 按钮 active 状态颜色

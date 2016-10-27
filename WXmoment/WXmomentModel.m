@@ -10,6 +10,7 @@
 
 @implementation WXmomentModel
 
+// 初始化方法的实现，字典转 model
 + (instancetype)modelWithDict:(NSDictionary *)dict{
     WXmomentModel*vi = [[WXmomentModel alloc] init];
     [vi setValuesForKeysWithDictionary:dict];

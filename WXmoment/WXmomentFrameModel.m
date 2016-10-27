@@ -30,11 +30,11 @@
     return self;
 }
 
-// 布局
+// 单个 Cell 的布局，并最终得到单个 Cell 的高度
 -(CGFloat)cellHeight{
     if (_cellHeight == 0) {
         
-        // 公共的 margin 值
+        // 公共 margin 值
         CGFloat margin = 10;
         
         // 头像

@@ -9,6 +9,8 @@
 #import "ModelGroup.h"
 
 @implementation ModelGroup
+
+// 将字典数组转为模型数组
 + (NSMutableArray *)groupWithNameOfContent:(NSString *)name{
     NSMutableArray*dataArr = [NSMutableArray arrayWithCapacity:0];
     NSMutableArray*arr     = [ NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle]

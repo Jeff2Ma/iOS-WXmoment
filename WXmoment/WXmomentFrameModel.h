@@ -35,7 +35,9 @@
 // model
 @property(nonatomic,strong)WXmomentModel * model;
 
+// 模型数组转frameModel数组的初始化方法
 + (NSMutableArray*)frameModelWithArray:(NSMutableArray*)arr;
 
+// 单个实例的初始化方法
 + (instancetype)frameModelWithModel:(WXmomentModel*)model;
 @end

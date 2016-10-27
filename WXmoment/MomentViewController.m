@@ -43,7 +43,7 @@ static NSString*IDD = @"AA";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"水友圈"; // 标题栏
-
+    
     [self addTabelView];
     [self addTableViewHeader];
     
@@ -66,7 +66,7 @@ static NSString*IDD = @"AA";
     // 设置 tableview 的背景色
     self.aTableView.backgroundView = nil;
     self.aTableView.backgroundColor = [UIColor whiteColor];
-
+    
     self.tab = self.aTableView;
 }
 
