@@ -1,6 +1,6 @@
 # iOS-WXmoment
 
-> iOS 入门项目-使用 Object-C 仿朋友圈信息流界面。
+> iOS 入门项目-使用 Objective-C 仿朋友圈信息流界面。
 > 
 > 另：Android 版本传送门：[Android-WXmoment](https://github.com/Jeff2Ma/Android-WXmoment)
 
@@ -27,20 +27,20 @@
 
 一段文字（string）根据文字的不同所产生的内容块的尺寸自然是不同，在旧版本 iOS 中可以使用如下代码获取：
 
-``` Object-C
+``` Objective-C
 NSString *strName = @"Jeff2Ma ";
 CGSize nameSize = [strName sizeWithFont:aName.font constrainedToSize:CGSizeMake(MAXFLOAT, aName.frame.size.height)];
 ```
 上面的代码在 Xcode 中会提醒使用最新的实现方式，修改后如下：
 
-``` Object-C
+``` Objective-C
 NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
 CGSize nameSize = [strName boundingRectWithSize:CGSizeMake(1000, 20) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
 ```
 
 ### UITextField 为密码的形式
 
-``` Object-C
+``` Objective-C
 self.aPassWordInput.secureTextEntry = YES; // 密码形式的输入
 ```
 
@@ -50,12 +50,12 @@ self.aPassWordInput.secureTextEntry = YES; // 密码形式的输入
 
 导入第三方库：
 
-``` Object-C
+``` Objective-C
 #import <QuartzCore/QuartzCore.h>
 ```
 设置一个名为 bottomBorder 的 CALayer
 
-``` Object-C
+``` Objective-C
 CALayer *bottomBorder = [CALayer layer];
 bottomBorder.frame = CGRectMake(0.0f, self.aPassWordInput.frame.size.height - 1, self.aPassWordInput.frame.size.width, 1.0f);
 bottomBorder.backgroundColor = [UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1].CGColor;
@@ -66,7 +66,7 @@ bottomBorder.backgroundColor = [UIColor colorWithRed:226/255.0 green:230/255.0 b
 
 #### 方式一：SectionHeader 的方式
 
-``` Object-C
+``` Objective-C
 // 返回HeaderInSection高度
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
  {
@@ -83,7 +83,7 @@ bottomBorder.backgroundColor = [UIColor colorWithRed:226/255.0 green:230/255.0 b
 
 一开始本人是采用这种方式的，不过发现有坑：添加后发现在滚动的时候 Header 的区域并不能跟随滚动而是固定（相当于 fixed），查阅资料发现可以通过设置`UITableViewStyleGrouped`即可跟随滚动：
 
-``` Object-C
+``` Objective-C
 // 另外一种为 UITableViewStylePlain
 self.aTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
 ```
@@ -96,7 +96,7 @@ self.aTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITab
 
 #### 方式二：tableHeaderView 的方式（推荐）
 
-``` Object-C
+``` Objective-C
 UIView *headView = [UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 100);
 headView.backgroundColor = [UIColor colorWithHexString:@"#4c9efa"];
 ...
@@ -105,7 +105,7 @@ myTableView.tableHeaderView = headView;
 
 ### TableView 去掉分割线默认的 margin left
 
-``` Object-C
+``` Objective-C
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([cell respondsToSelector:@selector(setSeparatorInset:)])
@@ -128,7 +128,7 @@ myTableView.tableHeaderView = headView;
 
 放在上面的方法代码内：
 
-``` Object-C
+``` Objective-C
 if ( indexPath.row ==  self.dataArray.count - 1 ) {
    cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(tableView.bounds));
 }
