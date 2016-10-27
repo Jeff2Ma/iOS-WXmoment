@@ -6,20 +6,20 @@
 
 ## 说明
 
-这个是本人入门 iOS 的第一个实战项目。从界面上仿微信登陆界面及仿朋友圈信息流，暂不考虑逻辑层面的东西。
+这个是本人入门 iOS 的第一个学习项目。从界面上仿微信登陆界面及仿朋友圈信息流，暂不考虑逻辑层面的东西。
 
 ## Screenshot
 
-### 登陆
-![登陆](./_screenshot/login.png)
+### 登录
+![登录](./_screenshot/login.png)
 
 ### 朋友圈头部
 
-![登陆](./_screenshot/wxmoment.png)
+![朋友圈头部](./_screenshot/wxmoment.png)
 
 ### 朋友圈
 
-![登陆](./_screenshot/wxmoment2.png)
+![朋友圈](./_screenshot/wxmoment2.png)
 
 ## 学习笔记
 
@@ -94,11 +94,11 @@ self.aTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITab
 
 因此后面是采用了方式二的。
 
-#### 方式二：tableHeaderView 的方式（推荐）
+#### 方式二：TableHeaderView 的方式（推荐）
 
 ``` Objective-C
 UIView *headView = [UIView alloc]initWithFrame:CGRectMake(0, 0, 300, 100);
-headView.backgroundColor = [UIColor colorWithHexString:@"#4c9efa"];
+headView.backgroundColor = [UIColor redcolor];
 ...
 myTableView.tableHeaderView = headView;
 ```
