@@ -67,7 +67,7 @@
 		DF9486221DC090EF00A9C1A9 /* WXmomentFrameModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXmomentFrameModel.h; sourceTree = "<group>"; };
 		DF9486231DC090EF00A9C1A9 /* WXmomentFrameModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXmomentFrameModel.m; sourceTree = "<group>"; };
 		DF9486251DC0917000A9C1A9 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
-		DF9486271DC0A55E00A9C1A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../NewVersion/WXmoments/Images.xcassets; sourceTree = "<group>"; };
+		DF9486271DC0A55E00A9C1A9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
