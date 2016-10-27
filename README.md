@@ -135,6 +135,13 @@ if ( indexPath.row ==  self.dataArray.count - 1 ) {
     
 ``` 
 
+### 朋友圈信息流设计的 MVC 思想
+
+- 使用MVC的框架，遵循类与类之间低耦合、高聚合的思想，能封装则封装。
+- Controller 只负责处理事件。
+- Cell（View）只负责显示界面。
+- Model 负责数据的处理。
+
 
 ## 参考资料
 
