@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define LoginBound [[UIScreen mainScreen] bounds];
+#define LoginNameFont [UIFont systemFontOfSize:17]
 const int MARGIN = 20; // 内 margin
 
 @interface LoginViewController ()
@@ -22,7 +23,8 @@ const int MARGIN = 20; // 内 margin
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"微信登录"; // 标题栏
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"微信登录"; // 标题栏
     
     // Do any additional setup after loading the view, typically from a nib.
     [self addUserName];
@@ -46,6 +48,7 @@ const int MARGIN = 20; // 内 margin
     self.aName.textColor = [UIColor grayColor];
     self.aName.backgroundColor = [UIColor clearColor];
     self.aName.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
+    self.aName.font = LoginNameFont;
     
     /* 通过计算文本的尺寸来定位
      * 定位方法：http://blog.csdn.net/enuola/article/details/8559588
@@ -53,22 +56,24 @@ const int MARGIN = 20; // 内 margin
      * 修复参考：http://wahenzan.com/a/mdev/ios/2016/1011/10890.html
      */
     
-    NSString *strName = @"Jeff2Ma "; // 必须加个空格才正常
+    NSString *strName = @"Jeff2Ma";
     
     // old way
     // CGSize nameSize = [strName sizeWithFont:aName.font constrainedToSize:CGSizeMake(MAXFLOAT, aName.frame.size.height)];
     
     // new way
-    NSDictionary *attribute = @{NSFontAttributeName:[UIFont systemFontOfSize:16]};
+    NSDictionary *attribute = @{NSFontAttributeName:LoginNameFont};
     CGSize nameSize = [strName boundingRectWithSize:CGSizeMake(1000, 20) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     
     // 基本单位
     CGRect bound = [[UIScreen mainScreen] bounds];
-    CGFloat NameLeft = bound.size.width/2 - nameSize.width/2;
-    CGFloat NameTop = 145;
+    CGFloat NameX = bound.size.width/2 - nameSize.width/2;
+    CGFloat NameY = 145;
+    // CGFloat NameY = self.aAvatar.frame.origin.x; //wrong?
+//    (self.view.frame.origin.y - self.aAvatar.frame.origin.y)+ 45
     
     // 根据 name 的长度重新设置位置
-    [self.aName setFrame:CGRectMake(NameLeft, NameTop, nameSize.width, 120)];
+    [self.aName setFrame:CGRectMake(NameX, NameY, nameSize.width, 120)];
     
     self.aName.text = strName;
     
