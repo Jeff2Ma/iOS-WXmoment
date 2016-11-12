@@ -27,22 +27,30 @@ const int MARGIN = 20; // 内 margin
     self.title = @"微信登录"; // 标题栏
     
     // Do any additional setup after loading the view, typically from a nib.
-    [self addUserName];
-    [self addAvatar];
-    [self addPassWordLabel];
-    [self addPassWordInput];
-    [self addLoginBtn];
     
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-// UI Element: 微信号
-#pragma mark - addUserName
--(void)addUserName{
+    CGRect bound = LoginBound; // 共有
+    
+    /*--------------------------------------------------------------
+     # 头像
+     --------------------------------------------------------------*/
+    CGFloat avatarW = 80;
+    CGFloat avatarH = 80;
+    CGFloat avatarX = bound.size.width/2 - avatarW/2;
+    CGFloat avatarY = 100;
+    
+    self.aAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(avatarX,avatarY,avatarW,avatarH)];
+    [self.aAvatar setImage:[UIImage imageNamed:@"avatar"]];
+    [self.aAvatar setContentMode:UIViewContentModeScaleAspectFill]; // 图片显示方式，类似 CSS 中 cover
+    
+    [self.aAvatar.layer setBorderWidth:1];
+    self.aAvatar.layer.cornerRadius = 5;
+    self.aAvatar.layer.borderColor = [[UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1] CGColor];
+    
+    [self.view addSubview:self.aAvatar];
+    
+    /*--------------------------------------------------------------
+     # 微信号
+     --------------------------------------------------------------*/
     self.aName = [[UILabel alloc]init];
     self.aName.numberOfLines = 0;
     self.aName.textColor = [UIColor grayColor];
@@ -66,11 +74,8 @@ const int MARGIN = 20; // 内 margin
     CGSize nameSize = [strName boundingRectWithSize:CGSizeMake(1000, 20) options: NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading attributes:attribute context:nil].size;
     
     // 基本单位
-    CGRect bound = [[UIScreen mainScreen] bounds];
     CGFloat NameX = bound.size.width/2 - nameSize.width/2;
-    CGFloat NameY = 145;
-    // CGFloat NameY = self.aAvatar.frame.origin.x; //wrong?
-//    (self.view.frame.origin.y - self.aAvatar.frame.origin.y)+ 45
+    CGFloat NameY = avatarY + 45; //145
     
     // 根据 name 的长度重新设置位置
     [self.aName setFrame:CGRectMake(NameX, NameY, nameSize.width, 120)];
@@ -78,37 +83,14 @@ const int MARGIN = 20; // 内 margin
     self.aName.text = strName;
     
     [self.view addSubview:self.aName];
-}
 
-// UI Element: 头像
-#pragma mark - addAvatar
--(void)addAvatar{
-    // 图片定位
-    CGRect bound = LoginBound;
-    CGFloat avatarW = 80;
-    CGFloat avatarH = 80;
-    CGFloat avatarX = bound.size.width/2 - avatarW/2;
-    CGFloat avatarY = 100;
-    
-    self.aAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(avatarX,avatarY,avatarW,avatarH)];
-    [self.aAvatar setImage:[UIImage imageNamed:@"avatar"]];
-    [self.aAvatar setContentMode:UIViewContentModeScaleAspectFill]; // 图片显示方式，类似 CSS 中 cover
-    
-    [self.aAvatar.layer setBorderWidth:1];
-    self.aAvatar.layer.cornerRadius = 5;
-    self.aAvatar.layer.borderColor = [[UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1] CGColor];
-    
-    [self.view addSubview:self.aAvatar];
-}
-
-// UI Element: 密码标签
-#pragma mark - addPassWordLabel
-- (void) addPassWordLabel{
-    
+    /*--------------------------------------------------------------
+     # 密码区域
+     --------------------------------------------------------------*/
     CGFloat PassWordLabelW = 38;
     CGFloat PassWordLabelH = 34;
     CGFloat PassWordLabelX = MARGIN;
-    CGFloat PassWordLabelY = 260;
+    CGFloat PassWordLabelY = NameY + 115; //260
     
     self.aPassWordLabel = [[UILabel alloc]init];
     self.aPassWordLabel.text = @"密码";
@@ -116,17 +98,14 @@ const int MARGIN = 20; // 内 margin
     
     [self.aPassWordLabel setFrame:CGRectMake(PassWordLabelX,PassWordLabelY,PassWordLabelW,PassWordLabelH)];
     [self.view addSubview:self.aPassWordLabel];
-}
-
-// UI Element: 密码输入框
-#pragma mark - addPassWordInput
-- (void) addPassWordInput{
     
-    CGRect bound = LoginBound;
+    /*--------------------------------------------------------------
+     # 密码输入框
+     --------------------------------------------------------------*/
     CGFloat PassWordInputH = 34;
     CGFloat PassWordInputW = bound.size.width - MARGIN * 2 - PassWordInputH - MARGIN/2;
     CGFloat PassWordInputX = MARGIN + PassWordInputH + MARGIN/2;
-    CGFloat PassWordInputY = 260;
+    CGFloat PassWordInputY = PassWordLabelY;
     
     self.aPassWordInput = [[UITextField alloc]init];
     self.aPassWordInput.placeholder = @"请填写密码";
@@ -142,13 +121,10 @@ const int MARGIN = 20; // 内 margin
     [self.aPassWordInput.layer addSublayer:bottomBorder];
     
     [self.view addSubview:self.aPassWordInput];
-}
 
-// UI Element: 登录按钮
-#pragma mark - addLoginBtn
-- (void) addLoginBtn{
-    
-    CGRect bound = LoginBound;
+    /*--------------------------------------------------------------
+     # 登录按钮
+     --------------------------------------------------------------*/
     CGFloat LoginBtnW = bound.size.width - MARGIN * 2;
     CGFloat LoginBtnH = 36;
     CGFloat LoginBtnX = MARGIN;
@@ -167,6 +143,11 @@ const int MARGIN = 20; // 内 margin
     
     [self.aLoginBtn setFrame:CGRectMake(LoginBtnX, LoginBtnY,LoginBtnW,LoginBtnH)];
     [self.view addSubview:self.aLoginBtn];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 // Logic: 登录按钮点击事件逻辑
@@ -202,6 +183,8 @@ const int MARGIN = 20; // 内 margin
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
+    CGRect bound = LoginBound; // 共有
+
 }
 
 @end
