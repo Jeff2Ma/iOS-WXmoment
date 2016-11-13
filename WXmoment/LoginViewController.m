@@ -15,7 +15,11 @@
 const int MARGIN = 20; // 内 margin
 
 @interface LoginViewController ()
-
+    @property (nonatomic,strong)  UILabel *PassWordLabel;
+    @property (nonatomic,strong)  UILabel *NameLabel;
+    @property (nonatomic,strong)  UIImageView *AvatarImageView;
+    @property (nonatomic,strong)  UITextField *PassWordInputTextField;
+    @property (nonatomic,strong)  UIButton *LoginButton;
 @end
 
 @implementation LoginViewController
@@ -38,25 +42,25 @@ const int MARGIN = 20; // 内 margin
     CGFloat avatarX = bound.size.width/2 - avatarW/2;
     CGFloat avatarY = 100;
     
-    self.aAvatar = [[UIImageView alloc]initWithFrame:CGRectMake(avatarX,avatarY,avatarW,avatarH)];
-    [self.aAvatar setImage:[UIImage imageNamed:@"avatar"]];
-    [self.aAvatar setContentMode:UIViewContentModeScaleAspectFill]; // 图片显示方式，类似 CSS 中 cover
+    self.AvatarImageView = [[UIImageView alloc]initWithFrame:CGRectMake(avatarX,avatarY,avatarW,avatarH)];
+    [self.AvatarImageView setImage:[UIImage imageNamed:@"avatar"]];
+    [self.AvatarImageView setContentMode:UIViewContentModeScaleAspectFill]; // 图片显示方式，类似 CSS 中 cover
     
-    [self.aAvatar.layer setBorderWidth:1];
-    self.aAvatar.layer.cornerRadius = 5;
-    self.aAvatar.layer.borderColor = [[UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1] CGColor];
+    [self.AvatarImageView.layer setBorderWidth:1];
+    self.AvatarImageView.layer.cornerRadius = 5;
+    self.AvatarImageView.layer.borderColor = [[UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1] CGColor];
     
-    [self.view addSubview:self.aAvatar];
+    [self.view addSubview:self.AvatarImageView];
     
     /*--------------------------------------------------------------
      # 微信号
      --------------------------------------------------------------*/
-    self.aName = [[UILabel alloc]init];
-    self.aName.numberOfLines = 0;
-    self.aName.textColor = [UIColor grayColor];
-    self.aName.backgroundColor = [UIColor clearColor];
-    self.aName.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
-    self.aName.font = LoginNameFont;
+    self.NameLabel = [[UILabel alloc]init];
+    self.NameLabel.numberOfLines = 0;
+    self.NameLabel.textColor = [UIColor grayColor];
+    self.NameLabel.backgroundColor = [UIColor clearColor];
+    self.NameLabel.textAlignment = NSTextAlignmentCenter; // 文本对齐方式
+    self.NameLabel.font = LoginNameFont;
     
     /* 通过计算文本的尺寸来定位
      * 定位方法：http://blog.csdn.net/enuola/article/details/8559588
@@ -67,7 +71,7 @@ const int MARGIN = 20; // 内 margin
     NSString *strName = @"Jeff2Ma";
     
     // old way
-    // CGSize nameSize = [strName sizeWithFont:aName.font constrainedToSize:CGSizeMake(MAXFLOAT, aName.frame.size.height)];
+    // CGSize nameSize = [strName sizeWithFont:NameLabel.font constrainedToSize:CGSizeMake(MAXFLOAT, NameLabel.frame.size.height)];
     
     // new way
     NSDictionary *attribute = @{NSFontAttributeName:LoginNameFont};
@@ -78,11 +82,11 @@ const int MARGIN = 20; // 内 margin
     CGFloat NameY = avatarY + 45; //145
     
     // 根据 name 的长度重新设置位置
-    [self.aName setFrame:CGRectMake(NameX, NameY, nameSize.width, 120)];
+    [self.NameLabel setFrame:CGRectMake(NameX, NameY, nameSize.width, 120)];
     
-    self.aName.text = strName;
+    self.NameLabel.text = strName;
     
-    [self.view addSubview:self.aName];
+    [self.view addSubview:self.NameLabel];
 
     /*--------------------------------------------------------------
      # 密码区域
@@ -92,12 +96,12 @@ const int MARGIN = 20; // 内 margin
     CGFloat PassWordLabelX = MARGIN;
     CGFloat PassWordLabelY = NameY + 115; //260
     
-    self.aPassWordLabel = [[UILabel alloc]init];
-    self.aPassWordLabel.text = @"密码";
-    self.aPassWordLabel.textColor=[UIColor blackColor];
+    self.PassWordLabel = [[UILabel alloc]init];
+    self.PassWordLabel.text = @"密码";
+    self.PassWordLabel.textColor=[UIColor blackColor];
     
-    [self.aPassWordLabel setFrame:CGRectMake(PassWordLabelX,PassWordLabelY,PassWordLabelW,PassWordLabelH)];
-    [self.view addSubview:self.aPassWordLabel];
+    [self.PassWordLabel setFrame:CGRectMake(PassWordLabelX,PassWordLabelY,PassWordLabelW,PassWordLabelH)];
+    [self.view addSubview:self.PassWordLabel];
     
     /*--------------------------------------------------------------
      # 密码输入框
@@ -107,20 +111,20 @@ const int MARGIN = 20; // 内 margin
     CGFloat PassWordInputX = MARGIN + PassWordInputH + MARGIN/2;
     CGFloat PassWordInputY = PassWordLabelY;
     
-    self.aPassWordInput = [[UITextField alloc]init];
-    self.aPassWordInput.placeholder = @"请填写密码";
-    self.aPassWordInput.textColor=[UIColor blackColor];
-    self.aPassWordInput.secureTextEntry = YES; // 密码形式的输入
-    self.aPassWordInput.keyboardType = UIKeyboardTypeASCIICapable; //ASCLL 码键盘
-    [self.aPassWordInput setFrame:CGRectMake(PassWordInputX,PassWordInputY,PassWordInputW,PassWordInputH)];
+    self.PassWordInputTextField = [[UITextField alloc]init];
+    self.PassWordInputTextField.placeholder = @"请填写密码";
+    self.PassWordInputTextField.textColor=[UIColor blackColor];
+    self.PassWordInputTextField.secureTextEntry = YES; // 密码形式的输入
+    self.PassWordInputTextField.keyboardType = UIKeyboardTypeASCIICapable; //ASCLL 码键盘
+    [self.PassWordInputTextField setFrame:CGRectMake(PassWordInputX,PassWordInputY,PassWordInputW,PassWordInputH)];
     
     // 设置下边框
     CALayer *bottomBorder = [CALayer layer];
-    bottomBorder.frame = CGRectMake(0.0f, self.aPassWordInput.frame.size.height - 1, self.aPassWordInput.frame.size.width, 1.0f);
+    bottomBorder.frame = CGRectMake(0.0f, self.PassWordInputTextField.frame.size.height - 1, self.PassWordInputTextField.frame.size.width, 1.0f);
     bottomBorder.backgroundColor = [UIColor colorWithRed:226/255.0 green:230/255.0 blue:232/255.0 alpha:1].CGColor;
-    [self.aPassWordInput.layer addSublayer:bottomBorder];
+    [self.PassWordInputTextField.layer addSublayer:bottomBorder];
     
-    [self.view addSubview:self.aPassWordInput];
+    [self.view addSubview:self.PassWordInputTextField];
 
     /*--------------------------------------------------------------
      # 登录按钮
@@ -130,19 +134,19 @@ const int MARGIN = 20; // 内 margin
     CGFloat LoginBtnX = MARGIN;
     CGFloat LoginBtnY = 330;
     
-    self.aLoginBtn = [[UIButton alloc] init];
-    [self.aLoginBtn setTitle:@"登 录" forState:UIControlStateNormal];
-    self.aLoginBtn.layer.cornerRadius = 5; // 圆角
-    self.aLoginBtn.backgroundColor = [UIColor colorWithRed:0.02 green:0.75 blue:0.01 alpha:1.00];
-    [self.aLoginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.aLoginBtn setTitleColor:[UIColor colorWithRed:0.60 green:0.89 blue:0.59 alpha:1.00] forState:UIControlStateHighlighted];
+    self.LoginButton = [[UIButton alloc] init];
+    [self.LoginButton setTitle:@"登 录" forState:UIControlStateNormal];
+    self.LoginButton.layer.cornerRadius = 5; // 圆角
+    self.LoginButton.backgroundColor = [UIColor colorWithRed:0.02 green:0.75 blue:0.01 alpha:1.00];
+    [self.LoginButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.LoginButton setTitleColor:[UIColor colorWithRed:0.60 green:0.89 blue:0.59 alpha:1.00] forState:UIControlStateHighlighted];
     
     // 事件绑定
-    [self.aLoginBtn addTarget:self action:@selector(onLoginBtnClickedFunction:) forControlEvents:(UIControlEventTouchUpInside)];
-    [self.aLoginBtn addTarget:self action:@selector(onLoginBtnClickedStyle:) forControlEvents:UIControlEventTouchDown];
+    [self.LoginButton addTarget:self action:@selector(onLoginBtnClickedFunction:) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.LoginButton addTarget:self action:@selector(onLoginBtnClickedStyle:) forControlEvents:UIControlEventTouchDown];
     
-    [self.aLoginBtn setFrame:CGRectMake(LoginBtnX, LoginBtnY,LoginBtnW,LoginBtnH)];
-    [self.view addSubview:self.aLoginBtn];
+    [self.LoginButton setFrame:CGRectMake(LoginBtnX, LoginBtnY,LoginBtnW,LoginBtnH)];
+    [self.view addSubview:self.LoginButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -156,7 +160,7 @@ const int MARGIN = 20; // 内 margin
     NSLog(@"clicked!");
     
     // 验证
-    if([self.aPassWordInput.text isEqualToString:@""]){
+    if([self.PassWordInputTextField.text isEqualToString:@""]){
         NSLog(@"correct!");
         MomentViewController *momentView = [[MomentViewController alloc] init];
         
@@ -183,8 +187,6 @@ const int MARGIN = 20; // 内 margin
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    CGRect bound = LoginBound; // 共有
-
 }
 
 @end

@@ -28,6 +28,14 @@ const int HEADERHEIGHT = 284; // header 的高度
  *  tableView
  */
 @property(nonatomic,weak)UITableView * tab;
+
+// header 部分
+@property (nonatomic,strong) UITableView *TableView;
+@property (nonatomic,strong) UIView *HeaderView;
+@property (nonatomic,strong) UIImageView *HeaderBackgroundImageView;
+@property (nonatomic,strong) UIImageView *HeaderAvatarImageView;
+@property (nonatomic,strong) UILabel *HeaderNameLabel;
+
 @end
 
 @implementation MomentViewController
@@ -54,59 +62,59 @@ const int HEADERHEIGHT = 284; // header 的高度
 // 创建tableView
 -(void)addTabelView{
     // UITableViewStyleGrouped 表示viewForHeaderInSection 头部跟随一起滚动, UITableViewStylePlain 则固定
-    self.aTableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.TableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
     
-    self.aTableView.delegate = self;
-    self.aTableView.dataSource = self;
+    self.TableView.delegate = self;
+    self.TableView.dataSource = self;
     
-    [self.view addSubview:self.aTableView];
-    [self.aTableView registerClass:[WXmomentCell class] forCellReuseIdentifier:IDD];
+    [self.view addSubview:self.TableView];
+    [self.TableView registerClass:[WXmomentCell class] forCellReuseIdentifier:IDD];
     // 去除分割线
     // vi.separatorColor = [UIColor clearColor];
     // vi.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置 tableview 的背景色
-    self.aTableView.backgroundView = nil;
-    self.aTableView.backgroundColor = [UIColor whiteColor];
+    self.TableView.backgroundView = nil;
+    self.TableView.backgroundColor = [UIColor whiteColor];
     
-    self.tab = self.aTableView;
+    self.tab = self.TableView;
 }
 
 // 增加 TableViewHeader
 - (void) addTableViewHeader {
-    self.aHeaderView = [[UIView alloc] init];
-    self.aHeaderImg = [[UIImageView alloc] init]; // 背景图
-    self.aHeaderAvatar = [[UIImageView alloc] init]; // 头像
-    self.aheaderName = [[UILabel alloc] init]; // 微信昵称
+    self.HeaderView = [[UIView alloc] init];
+    self.HeaderBackgroundImageView = [[UIImageView alloc] init]; // 背景图
+    self.HeaderAvatarImageView = [[UIImageView alloc] init]; // 头像
+    self.HeaderNameLabel = [[UILabel alloc] init]; // 微信昵称
     
     // 包裹元素
-    [self.aHeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
-    self.aHeaderView.backgroundColor = [UIColor whiteColor];
+    [self.HeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
+    self.HeaderView.backgroundColor = [UIColor whiteColor];
     
     // 背景图
-    [self.aHeaderImg setFrame:CGRectMake(0, 0, self.view.frame.size.width, 260)];
-    [self.aHeaderImg setImage:[UIImage imageNamed:@"header_bg"]];
-    [self.aHeaderImg setContentMode:UIViewContentModeScaleAspectFill];
+    [self.HeaderBackgroundImageView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT - 24)];
+    [self.HeaderBackgroundImageView setImage:[UIImage imageNamed:@"header_bg"]];
+    //[self.HeaderBackgroundImageView setContentMode:UIViewContentModeScaleAspectFill]; // 设置后会破坏高度
     
     // 头像
-    [self.aHeaderAvatar setFrame:CGRectMake(self.aHeaderView.frame.size.width-90, 214, 70, 70)];
-    [self.aHeaderAvatar setImage:[UIImage imageNamed:@"avatar"]];
-    [self.aHeaderAvatar.layer setBorderWidth:0.5];
-    self.aHeaderAvatar.layer.borderColor = [[UIColor colorWithWhite:0.6 alpha:1] CGColor];
+    [self.HeaderAvatarImageView setFrame:CGRectMake(self.HeaderView.frame.size.width-90, 214, 70, 70)];
+    [self.HeaderAvatarImageView setImage:[UIImage imageNamed:@"avatar"]];
+    [self.HeaderAvatarImageView.layer setBorderWidth:0.5];
+    self.HeaderAvatarImageView.layer.borderColor = [[UIColor colorWithWhite:0.6 alpha:1] CGColor];
     
     // 昵称
-    [self.aheaderName setFrame:CGRectMake(self.aHeaderView.frame.size.width-150, 230, 60, 20)];
-    self.aheaderName.text = @"JeffMa";
-    self.aheaderName.textColor=[UIColor whiteColor];
-    [self.aheaderName setFont:[UIFont boldSystemFontOfSize:14]]; // 加粗
-    self.aheaderName.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.4]; // 阴影
-    self.aheaderName.shadowOffset = CGSizeMake(1, 1);// 阴影偏移
+    [self.HeaderNameLabel setFrame:CGRectMake(self.HeaderView.frame.size.width-150, 230, 60, 20)];
+    self.HeaderNameLabel.text = @"JeffMa";
+    self.HeaderNameLabel.textColor=[UIColor whiteColor];
+    [self.HeaderNameLabel setFont:[UIFont boldSystemFontOfSize:14]]; // 加粗
+    self.HeaderNameLabel.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.4]; // 阴影
+    self.HeaderNameLabel.shadowOffset = CGSizeMake(1, 1);// 阴影偏移
     
     // 增加
-    self.aTableView.tableHeaderView = self.aHeaderView;
-    [self.aHeaderView addSubview:self.aHeaderImg];
-    [self.aHeaderView addSubview:self.aHeaderAvatar];
-    [self.aHeaderView addSubview:self.aheaderName];
+    self.TableView.tableHeaderView = self.HeaderView;
+    [self.HeaderView addSubview:self.HeaderBackgroundImageView];
+    [self.HeaderView addSubview:self.HeaderAvatarImageView];
+    [self.HeaderView addSubview:self.HeaderNameLabel];
 }
 
 #pragma mark - numberOfSectionsInTableView
@@ -158,55 +166,6 @@ const int HEADERHEIGHT = 284; // header 的高度
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, CGRectGetWidth(tableView.bounds));
     }
 }
-
-/**
- * 以下是另外一种实现方式，有坑
- *
- // TableView 添加 Section 自定义头部-定义高度
- - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
- {
- return 284;
- }
- 
- //  TableView 添加 Section 自定义头部
- -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
- 
- self.aHeaderView = [[UIView alloc] init];
- //    self.aHeaderView = [[UIView alloc] initWithFrame:self.view.bounds];
- self.aHeaderImg = [[UIImageView alloc] init]; // 背景图
- self.aHeaderAvatar = [[UIImageView alloc] init]; // 头像
- self.aheaderName = [[UILabel alloc] init]; // 微信昵称
- 
- // 包裹元素
- [self.aHeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, 284)];
- self.aHeaderView.backgroundColor = [UIColor whiteColor];
- 
- // 背景图
- [self.aHeaderImg setFrame:CGRectMake(0, 0, self.view.frame.size.width, 260)];
- [self.aHeaderImg setImage:[UIImage imageNamed:@"header_bg"]];
- 
- // 头像
- [self.aHeaderAvatar setFrame:CGRectMake(self.aHeaderView.frame.size.width-80, 214, 70, 70)];
- [self.aHeaderAvatar setImage:[UIImage imageNamed:@"avatar"]];
- [self.aHeaderAvatar.layer setBorderWidth:0.5];
- self.aHeaderAvatar.layer.borderColor = [[UIColor colorWithWhite:0.6 alpha:1] CGColor];
- 
- // 昵称
- [self.aheaderName setFrame:CGRectMake(self.aHeaderView.frame.size.width-140, 230, 60, 20)];
- self.aheaderName.text = @"JeffMa";
- self.aheaderName.textColor=[UIColor whiteColor];
- [self.aheaderName setFont:[UIFont boldSystemFontOfSize:14]]; // 加粗
- self.aheaderName.shadowColor = [UIColor colorWithRed:0/255.0 green:0/255.0 blue:0/255.0 alpha:0.4]; // 阴影
- self.aheaderName.shadowOffset = CGSizeMake(1, 1);// 阴影偏移
- 
- [self.view addSubview:self.aHeaderView];
- [self.aHeaderView addSubview:self.aHeaderImg];
- [self.aHeaderView addSubview:self.aHeaderAvatar];
- [self.aHeaderView addSubview:self.aheaderName];
- 
- return self.aHeaderView;
- }
- */
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

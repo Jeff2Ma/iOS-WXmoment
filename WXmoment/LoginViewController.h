@@ -10,11 +10,5 @@
 
 @interface LoginViewController : UIViewController
 
-@property (nonatomic,strong)  UILabel *aPassWordLabel;
-@property (nonatomic,strong)  UILabel *aName;
-@property (nonatomic,strong)  UIImageView *aAvatar;
-@property (nonatomic,strong)  UITextField *aPassWordInput;
-@property (nonatomic,strong)  UIButton *aLoginBtn;
-
 @end
 

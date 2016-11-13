@@ -11,11 +11,5 @@
 
 
 @interface MomentViewController :  UIViewController
-// header 部分
-@property (nonatomic,strong) UITableView *aTableView;
-@property (nonatomic,strong) UIView *aHeaderView;
-@property (nonatomic,strong) UIImageView *aHeaderImg;
-@property (nonatomic,strong) UIImageView *aHeaderAvatar;
-@property (nonatomic,strong) UILabel *aheaderName;
 
 @end
