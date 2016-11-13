@@ -96,6 +96,7 @@ const int CELLMARGIN = 10; // cell margin
         self.timeFrame = (CGRect){{timeX, timeY}, timeSize};
         
     }
+    NSLog(@"Cell 高度： %.2f",_cellHeight);
     return _cellHeight;
 }
 

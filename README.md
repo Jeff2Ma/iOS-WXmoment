@@ -44,6 +44,39 @@ CGSize nameSize = [strName boundingRectWithSize:CGSizeMake(1000, 20) options: NS
 self.aPassWordInput.secureTextEntry = YES; // 密码形式的输入
 ```
 
+### UIButton 高亮状态下变背景色的方法
+
+由于UIButton 没有类似- (void)setBackgroundColor:(UIColor *)color forState:(UIControlState)state 的方法，所以需要自己自定义。
+
+方法一：
+``` Objective-C
+[self.LoginButton addTarget:self action:@selector(onLoginBtnClickedStyle:) forControlEvents:UIControlEventTouchDown];
+
+#pragma mark - onLoginBtnClickedStyle
+- (void)onLoginBtnClickedStyle:(UIButton *)sender{
+    sender.backgroundColor = [UIColor colorWithRed:0.02 green:0.75 blue:0.01 alpha:0.80];
+}
+```
+
+方法二：
+``` Objective-C
+    [self.LoginButton setBackgroundImage:[self imageWithColor:[UIColor blueColor]] forState:UIControlStateHighlighted];
+
++ (UIImage *)imageWithColor:(UIColor *)color {
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
+}
+```
+
 ### 设置下边框的方法
 
 下边框指类似 CSS 中`border-bottom 的效果`，即上面 Screenshot 中的填写密码的UITextField。

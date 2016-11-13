@@ -144,6 +144,12 @@ const int HEADERHEIGHT = 284; // header 的高度
     return mo.cellHeight;
 }
 
+// 估计高度，提高性能
+#pragma mark - estimatedHeightForRowAtIndexPath
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 150;
+}
+
 // 分割线样式设置
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
