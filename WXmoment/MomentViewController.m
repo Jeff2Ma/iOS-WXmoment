@@ -88,22 +88,18 @@ const int HEADERHEIGHT = 284; // header 的高度
     self.HeaderNameLabel = [[UILabel alloc] init]; // 微信昵称
     
     // 包裹元素
-    [self.HeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
     self.HeaderView.backgroundColor = [UIColor whiteColor];
     
     // 背景图
-    [self.HeaderBackgroundImageView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT - 24)];
     [self.HeaderBackgroundImageView setImage:[UIImage imageNamed:@"header_bg"]];
     //[self.HeaderBackgroundImageView setContentMode:UIViewContentModeScaleAspectFill]; // 设置后会破坏高度
     
     // 头像
-    [self.HeaderAvatarImageView setFrame:CGRectMake(self.HeaderView.frame.size.width-90, 214, 70, 70)];
     [self.HeaderAvatarImageView setImage:[UIImage imageNamed:@"avatar"]];
     [self.HeaderAvatarImageView.layer setBorderWidth:0.5];
     self.HeaderAvatarImageView.layer.borderColor = [[UIColor colorWithWhite:0.6 alpha:1] CGColor];
     
     // 昵称
-    [self.HeaderNameLabel setFrame:CGRectMake(self.HeaderView.frame.size.width-150, 230, 60, 20)];
     self.HeaderNameLabel.text = @"JeffMa";
     self.HeaderNameLabel.textColor=[UIColor whiteColor];
     [self.HeaderNameLabel setFont:[UIFont boldSystemFontOfSize:14]]; // 加粗
@@ -176,6 +172,18 @@ const int HEADERHEIGHT = 284; // header 的高度
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    // hack 横竖屏
+    [self.TableView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [self.HeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
+    [self.HeaderBackgroundImageView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT - 24)];
+    [self.HeaderAvatarImageView setFrame:CGRectMake(self.HeaderView.frame.size.width-90, 214, 70, 70)];
+    [self.HeaderNameLabel setFrame:CGRectMake(self.HeaderView.frame.size.width-150, 230, 60, 20)];
+
 }
 
 @end
