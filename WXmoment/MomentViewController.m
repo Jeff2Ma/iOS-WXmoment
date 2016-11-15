@@ -14,6 +14,7 @@
 
 static NSString*IDD = @"AA";
 const int HEADERHEIGHT = 284; // header 的高度
+const int HEADERHEIGHT_LANDSCAPE= 484; // 竖屏时候 header 的高度
 
 @interface MomentViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**
@@ -56,7 +57,6 @@ const int HEADERHEIGHT = 284; // header 的高度
     
     [self addTabelView];
     [self addTableViewHeader];
-    
 }
 
 // 创建tableView
@@ -92,7 +92,7 @@ const int HEADERHEIGHT = 284; // header 的高度
     
     // 背景图
     [self.HeaderBackgroundImageView setImage:[UIImage imageNamed:@"header_bg"]];
-    //[self.HeaderBackgroundImageView setContentMode:UIViewContentModeScaleAspectFill]; // 设置后会破坏高度
+//    [self.HeaderBackgroundImageView setContentMode:UIViewContentModeScaleAspectFill]; // 设置后会破坏高度
     
     // 头像
     [self.HeaderAvatarImageView setImage:[UIImage imageNamed:@"avatar"]];
@@ -178,12 +178,34 @@ const int HEADERHEIGHT = 284; // header 的高度
     [super viewDidLayoutSubviews];
     
     // hack 横竖屏
-    [self.TableView setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    self.TableView.frame = self.view.bounds;
     [self.HeaderView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT)];
     [self.HeaderBackgroundImageView setFrame:CGRectMake(0, 0, self.view.frame.size.width, HEADERHEIGHT - 24)];
     [self.HeaderAvatarImageView setFrame:CGRectMake(self.HeaderView.frame.size.width-90, 214, 70, 70)];
     [self.HeaderNameLabel setFrame:CGRectMake(self.HeaderView.frame.size.width-150, 230, 60, 20)];
-
+        
 }
+
+//横竖屏
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
+    
+    NSLog(@"w:%f",self.view.bounds.size.width);
+    NSLog(@"h:%f",self.view.bounds.size.height);
+
+    self.TableView.dataSource = self;
+
+    UIDeviceOrientation interfaceOrientation = [UIDevice currentDevice].orientation;
+    if (interfaceOrientation == UIDeviceOrientationPortrait || interfaceOrientation == UIDeviceOrientationPortraitUpsideDown) {
+        //翻转为竖屏时
+        [self.TableView reloadData];
+//        NSLog (@"竖屏");
+        
+    }else if (interfaceOrientation==UIDeviceOrientationLandscapeLeft || interfaceOrientation == UIDeviceOrientationLandscapeRight) {
+        //翻转为横屏时
+        [self.TableView reloadData];
+        NSLog (@"横屏");
+    }
+}
+
 
 @end

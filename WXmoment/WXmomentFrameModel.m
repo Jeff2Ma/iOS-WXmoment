@@ -38,7 +38,8 @@ const int CELLMARGIN = 10; // cell margin
 
 // 单个 Cell 的布局，并最终得到单个 Cell 的高度
 -(CGFloat)cellHeight{
-    if (_cellHeight == 0) {
+    // 注释掉判断以便能在横竖屏的时候也能获取到数据信息
+    //if (_cellHeight == 0) {
         
         // 头像
         CGFloat avatarX = CELLMARGIN;
@@ -95,7 +96,7 @@ const int CELLMARGIN = 10; // cell margin
         CGSize timeSize = [self.model.time sizeWithAttributes:timeAttrs];
         self.timeFrame = (CGRect){{timeX, timeY}, timeSize};
         
-    }
+    //}
     NSLog(@"Cell 高度： %.2f",_cellHeight);
     return _cellHeight;
 }
